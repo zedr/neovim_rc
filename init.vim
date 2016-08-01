@@ -131,6 +131,9 @@ nnoremap <leader>w :w!<cr>
 nnoremap <leader>q :qa<cr>
 nnoremap <leader>Q :wqa!<cr>
 
+""" Linux Coding Style
+nnoremap <silent> <leader>k :LinuxCodingStyle<cr>
+
 """ Airline theme
 :let g:airline_theme='zenburn'
 :let g:airline_powerline_fonts = 1
@@ -144,5 +147,6 @@ Plug 'vivien/vim-linux-coding-style'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
+Plug 'vivien/vim-linux-coding-style'
 
 call plug#end()
