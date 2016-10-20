@@ -21,6 +21,7 @@ set encoding=utf-8
 set autoindent
 filetype plugin on
 filetype plugin indent on
+au BufNewFile,BufRead *.kv set filetype=kv
 
 """ Autoindent
 set ai
@@ -69,7 +70,7 @@ au BufRead,BufNewFile *.rs set filetype=rust
 au BufRead,BufNewFile *.toml set filetype=toml
 au BufRead,BufNewFile *.html set filetype=html
 au BufRead,BufNewFile *.js set filetype=javascript
-au BufRead,BufNewFile *.md set filetype=mkd
+au BufRead,BufNewFile *.md set filetype=markdown
 
 " C
 augroup project
@@ -134,6 +135,9 @@ nnoremap <leader>Q :wqa!<cr>
 """ Linux Coding Style
 nnoremap <silent> <leader>k :LinuxCodingStyle<cr>
 
+""" Indentation for file-type
+autocmd FileType kv setlocal shiftwidth=4 tabstop=4
+
 """ Airline theme
 :let g:airline_theme='zenburn'
 :let g:airline_powerline_fonts = 1
@@ -148,5 +152,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'vivien/vim-linux-coding-style'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'farfanoide/vim-kivy'
 
 call plug#end()
