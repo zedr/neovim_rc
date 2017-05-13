@@ -4,8 +4,10 @@ set noswapfile
 """ Syntax
 syntax on
 
-""" Colors
-colorscheme zenburn
+if !&diff
+    """ Colors
+    colorscheme zenburn
+endif
 set background=dark
 
 """ Set the Leader
@@ -18,13 +20,13 @@ set history=1000
 set encoding=utf-8
 
 """ Filetypes
-set autoindent
 filetype plugin on
 filetype plugin indent on
 au BufNewFile,BufRead *.kv set filetype=kv
 
-""" Autoindent
-set ai
+""" Indentation
+set autoindent
+set smartindent
 
 """ Allow copy/pasting using X
 set mouse=v
@@ -39,11 +41,15 @@ highlight ColorColumn ctermbg=235 guibg=#2c2d27
 set number
 set ruler
 
+""" Whitespace
+set list listchars=tab:→\ ,trail:·
+
 """ Tabs and spaces
-"set expandtab           " enter spaces when tab is pressed
-"set tabstop=4           " use 4 spaces to represent tab
-"set softtabstop=4
-"set shiftwidth=4        " number of spaces to use for auto indent
+set smarttab
+set expandtab           " enter spaces when tab is pressed
+set tabstop=4           " use 4 spaces to represent tab
+set softtabstop=4
+set shiftwidth=4        " number of spaces to use for auto indent
 
 """ Conserve sanity
 cmap W w
@@ -63,6 +69,7 @@ filetype on
 au BufNewFile,BufRead *.asm set filetype=asmone
 au BufNewFile,BufRead *.s set filetype=asmone
 au BufNewFile,BufRead *.vcl set filetype=vcl
+au BufNewFile,BufRead *.c set filetype=c
 au BufRead,BufNewFile *.kt  set filetype=kotlin
 au BufRead,BufNewFile *.jet set filetype=kotlin
 au BufRead,BufNewFile *.sls set filetype=yaml
@@ -72,11 +79,8 @@ au BufRead,BufNewFile *.html set filetype=html
 au BufRead,BufNewFile *.js set filetype=javascript
 au BufRead,BufNewFile *.md set filetype=markdown
 
-" C
-augroup project
-    autocmd!
-    autocmd BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
-augroup END
+" Diff
+autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 
 augroup CursorLine
     au!
@@ -143,17 +147,32 @@ autocmd FileType kv setlocal shiftwidth=4 tabstop=4
 :let g:airline_powerline_fonts = 1
 set noshowmode
 
-""" vim-plug
-call plug#begin('~/.vim-plugged')
+""" Python-mode
+let g:pymode_folding = 0
+let g:pymode_rope_goto_definition_bind = "<C-]>"
+let g:pymode_warnings = 1
+let g:pymode_doc = 0
+let g:pymode_doc_bind = 'K'
+let g:pymode_run_bind = '<leader>r'
+let g:pymode_rope = 0
+let g:pymode_lint_on_write = 1
 
-" Group dependencies, vim-snippets depends on ultisnips
-Plug 'vivien/vim-linux-coding-style'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
-Plug 'vivien/vim-linux-coding-style'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'farfanoide/vim-kivy'
+if !&diff
+    """ vim-plug
+    call plug#begin('~/.vim-plugged')
 
-call plug#end()
+    " Group dependencies, vim-snippets depends on ultisnips
+    Plug 'vivien/vim-linux-coding-style'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'tpope/vim-fugitive'
+    Plug 'vivien/vim-linux-coding-style'
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
+    Plug 'farfanoide/vim-kivy'
+    Plug 'klen/python-mode'
+    Plug 'hynek/vim-python-pep8-indent'
+    Plug 'pangloss/vim-javascript'
+
+    call plug#end()
+endif
