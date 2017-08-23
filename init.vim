@@ -70,8 +70,8 @@ vnoremap <F1> <ESC>
 """ Editor tabs
 nnoremap <leader>t :tabe<cr>
 nnoremap <leader>c :tabclose<cr>
-nnoremap <leader>] :tabp<cr>
-nnoremap <leader>[ :tabn<cr>
+nnoremap <leader>] :tabn<cr>
+nnoremap <leader>[ :tabp<cr>
 nnoremap <leader>f :Te<cr>
 
 """ Filetypes
