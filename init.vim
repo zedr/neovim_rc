@@ -28,8 +28,11 @@ au BufNewFile,BufRead *.kv set filetype=kv
 set autoindent
 set smartindent
 
+
 """ Allow copy/pasting using X
 set mouse=v
+""" No line number selection
+"set mouse=a
 
 """ Toggle colored right border after 79 chars
 set colorcolumn=79
@@ -63,6 +66,10 @@ vnoremap > >gv
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
+
+""" Editor tabs
+nnoremap <leader>t :tabe<cr>
+nnoremap <leader>f :Te<cr>
 
 """ Filetypes
 filetype on
@@ -133,7 +140,7 @@ endif
 
 """ Save all and quit
 nnoremap <leader>w :w!<cr>
-nnoremap <leader>q :qa<cr>
+nnoremap <leader>q :q!<cr>
 nnoremap <leader>Q :wqa!<cr>
 
 """ Linux Coding Style
@@ -166,13 +173,14 @@ if !&diff
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'tpope/vim-fugitive'
-    Plug 'vivien/vim-linux-coding-style'
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'farfanoide/vim-kivy'
-    Plug 'klen/python-mode'
+    " Plug 'python-mode/python-mode'
     Plug 'hynek/vim-python-pep8-indent'
     Plug 'pangloss/vim-javascript'
+    Plug 'moll/vim-node'
+    Plug 'tpope/vim-fireplace'
 
     call plug#end()
 endif
