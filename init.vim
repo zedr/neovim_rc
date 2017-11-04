@@ -70,9 +70,15 @@ vnoremap <F1> <ESC>
 """ Editor tabs
 nnoremap <leader>t :tabe<cr>
 nnoremap <leader>c :tabclose<cr>
-nnoremap <leader>] :tabn<cr>
-nnoremap <leader>[ :tabp<cr>
+nnoremap ‘ :tabn<cr>
+nnoremap “ :tabp<cr>
+nnoremap <A-1> 1gt
+nnoremap <A-2> 2gt
+nnoremap <A-3> 3gt
+nnoremap <A-4> 4gt
+nnoremap <A-5> 5gt
 nnoremap <leader>f :Te<cr>
+nnoremap <leader>n :tabe<cr>
 
 """ Filetypes
 filetype on
@@ -103,7 +109,10 @@ augroup END
 nnoremap <leader>v <C-w>v<C-w>l
 nnoremap <leader>o <C-w>n<C-w>l
 nnoremap <leader>w <C-w>c
-nnoremap <leader>, <C-w>w
+nnoremap <leader>/ <C-w>w
+
+"Reformat
+nnoremap <leader>, mzgg=G`z
 
 " Easier navigation between split windows
 nnoremap <c-j> <c-w>j
@@ -167,6 +176,14 @@ let g:pymode_run_bind = '<leader>r'
 let g:pymode_rope = 0
 let g:pymode_lint_on_write = 1
 
+""" Snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+""" Java
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
 if !&diff
     """ vim-plug
     call plug#begin('~/.vim-plugged')
@@ -183,7 +200,8 @@ if !&diff
     Plug 'hynek/vim-python-pep8-indent'
     Plug 'pangloss/vim-javascript'
     Plug 'moll/vim-node'
-    Plug 'tpope/vim-fireplace'
+    Plug 'ekalinin/Dockerfile.vim'
+    " Plug 'artur-shaik/vim-javacomplete2'
 
     call plug#end()
 endif
