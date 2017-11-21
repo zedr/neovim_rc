@@ -181,6 +181,11 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+""" Emmet
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
 " Java
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 nmap <leader>jI <Plug>(JavaComplete-Imports-AddMissing)
@@ -213,6 +218,7 @@ if !&diff
     Plug 'tpope/vim-fireplace'
     Plug 'Raimondi/delimitMate'
     Plug 'artur-shaik/vim-javacomplete2'
+    Plug 'mattn/emmet-vim'
 
     call plug#end()
 endif
