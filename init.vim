@@ -181,8 +181,17 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-""" Java
+" Java
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
+nmap <leader>jI <Plug>(JavaComplete-Imports-AddMissing)
+nmap <leader>jR <Plug>(JavaComplete-Imports-RemoveUnused)
+nmap <leader>ji <Plug>(JavaComplete-Imports-AddSmart)
+nmap <leader>jii <Plug>(JavaComplete-Imports-Add)
+
+imap <C-j>I <Plug>(JavaComplete-Imports-AddMissing)
+imap <C-j>R <Plug>(JavaComplete-Imports-RemoveUnused)
+imap <C-j>i <Plug>(JavaComplete-Imports-AddSmart)
+imap <C-j>ii <Plug>(JavaComplete-Imports-Add)
 
 if !&diff
     """ vim-plug
@@ -193,7 +202,7 @@ if !&diff
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'tpope/vim-fugitive'
-    Plug 'SirVer/ultisnips'
+    " Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'farfanoide/vim-kivy'
     " Plug 'python-mode/python-mode'
@@ -201,7 +210,9 @@ if !&diff
     Plug 'pangloss/vim-javascript'
     Plug 'moll/vim-node'
     Plug 'ekalinin/Dockerfile.vim'
-    " Plug 'artur-shaik/vim-javacomplete2'
+    Plug 'tpope/vim-fireplace'
+    Plug 'Raimondi/delimitMate'
+    Plug 'artur-shaik/vim-javacomplete2'
 
     call plug#end()
 endif
