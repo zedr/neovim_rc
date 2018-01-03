@@ -182,9 +182,12 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 """ Emmet
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+imap <expr> <S-tab> emmet#expandAbbrIntelligent("\<tab>")
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
+
+""" JavaScript
+autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
 
 " Java
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
@@ -207,7 +210,7 @@ if !&diff
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'tpope/vim-fugitive'
-    " Plug 'SirVer/ultisnips'
+    Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'farfanoide/vim-kivy'
     " Plug 'python-mode/python-mode'
@@ -217,7 +220,7 @@ if !&diff
     Plug 'ekalinin/Dockerfile.vim'
     Plug 'tpope/vim-fireplace'
     Plug 'Raimondi/delimitMate'
-    Plug 'artur-shaik/vim-javacomplete2'
+    " Plug 'artur-shaik/vim-javacomplete2'
     Plug 'mattn/emmet-vim'
 
     call plug#end()
