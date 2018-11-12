@@ -174,7 +174,7 @@ let g:pymode_doc = 0
 let g:pymode_doc_bind = 'K'
 let g:pymode_run_bind = '<leader>r'
 let g:pymode_rope = 0
-let g:pymode_lint_on_write = 1
+let g:pymode_lint_on_write = 0
 
 """ Snippets
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -213,7 +213,7 @@ if !&diff
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'farfanoide/vim-kivy'
-    " Plug 'python-mode/python-mode'
+    Plug 'python-mode/python-mode'
     Plug 'hynek/vim-python-pep8-indent'
     Plug 'pangloss/vim-javascript'
     Plug 'moll/vim-node'
