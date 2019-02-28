@@ -189,7 +189,7 @@ autocmd FileType html,css EmmetInstall
 """ JavaScript
 autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab
 
-" Java
+""" Java
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 nmap <leader>jI <Plug>(JavaComplete-Imports-AddMissing)
 nmap <leader>jR <Plug>(JavaComplete-Imports-RemoveUnused)
@@ -200,6 +200,12 @@ imap <C-j>I <Plug>(JavaComplete-Imports-AddMissing)
 imap <C-j>R <Plug>(JavaComplete-Imports-RemoveUnused)
 imap <C-j>i <Plug>(JavaComplete-Imports-AddSmart)
 imap <C-j>ii <Plug>(JavaComplete-Imports-Add)
+
+" For local replace
+nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
+
+" For global replace
+nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 
 if !&diff
     """ vim-plug
@@ -213,7 +219,7 @@ if !&diff
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'farfanoide/vim-kivy'
-    Plug 'python-mode/python-mode'
+    " Plug 'python-mode/python-mode'
     Plug 'hynek/vim-python-pep8-indent'
     Plug 'pangloss/vim-javascript'
     Plug 'moll/vim-node'
@@ -222,6 +228,7 @@ if !&diff
     Plug 'Raimondi/delimitMate'
     " Plug 'artur-shaik/vim-javacomplete2'
     Plug 'mattn/emmet-vim'
+    Plug 'nvie/vim-flake8'
 
     call plug#end()
 endif
