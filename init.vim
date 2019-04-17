@@ -201,6 +201,10 @@ imap <C-j>R <Plug>(JavaComplete-Imports-RemoveUnused)
 imap <C-j>i <Plug>(JavaComplete-Imports-AddSmart)
 imap <C-j>ii <Plug>(JavaComplete-Imports-Add)
 
+" YAML
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=manual
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
 " For local replace
 nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
 
